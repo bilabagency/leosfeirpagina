@@ -44,14 +44,14 @@
         
         /* Efecto Gradiente en Texto */
         .text-gradient {
-            background: linear-gradient(135deg, var(--primary) 0%, #00C6FF 100%);
+            background: linear-gradient(135deg, #60A5FA 0%, #2DD4BF 100%); /* Cyan más brillante para fondo oscuro */
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         /* --- HEADER GLASSMORPHISM --- */
         header {
-            background: rgba(255, 255, 255, 0.85);
+            background: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--border);
@@ -82,16 +82,24 @@
         /* Botón Hamburguesa Móvil */
         .hamburger { display: none; font-size: 1.5rem; cursor: pointer; color: var(--dark); }
 
-        /* --- HERO SECTION --- */
+        /* --- HERO SECTION CON IMAGEN DE FONDO --- */
         #inicio {
-            padding: 140px 0 100px;
-            background: radial-gradient(circle at 10% 20%, rgba(15, 82, 186, 0.05) 0%, transparent 50%);
+            padding: 180px 0 140px; /* Más aire vertical */
+            position: relative;
+            background-color: var(--dark); /* Fallback */
+            /* Intervención: Gradiente oscuro sobre la foto para legibilidad */
+            background-image: 
+                linear-gradient(to bottom, rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.5)),
+                url('https://i.ibb.co/9HPV6ZZf/image-1.png');
+            background-size: cover;
+            background-position: center top; /* Foco en Leandro */
             text-align: center;
+            color: white; /* Texto blanco obligado por fondo oscuro */
         }
 
         .badge-tech {
-            background: rgba(15, 82, 186, 0.1);
-            color: var(--primary);
+            background: rgba(255, 255, 255, 0.1);
+            color: #60A5FA; /* Azul claro */
             padding: 6px 16px;
             border-radius: 20px;
             font-size: 0.8rem;
@@ -100,18 +108,21 @@
             letter-spacing: 1px;
             display: inline-block;
             margin-bottom: 25px;
+            border: 1px solid rgba(255,255,255,0.2);
+            backdrop-filter: blur(5px);
         }
 
         .hero-title {
             font-size: 4rem;
             line-height: 1.1;
             margin-bottom: 25px;
-            color: var(--dark);
+            color: white; /* Blanco puro */
+            text-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
 
         .hero-desc {
             font-size: 1.25rem;
-            color: #64748B;
+            color: #CBD5E1; /* Gris claro muy legible */
             max-width: 700px;
             margin: 0 auto 40px;
             font-weight: 400;
@@ -131,15 +142,17 @@
             background: var(--primary);
             color: white;
             box-shadow: 0 4px 14px 0 rgba(15, 82, 186, 0.39);
+            border: 1px solid transparent;
         }
-        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(15, 82, 186, 0.23); background: var(--primary-dark); }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(15, 82, 186, 0.5); background: var(--primary-dark); }
 
         .btn-outline {
-            background: white;
-            color: var(--dark);
-            border: 1px solid #E2E8F0;
+            background: rgba(255,255,255,0.05); /* Transparente glass */
+            color: white;
+            border: 1px solid rgba(255,255,255,0.3);
+            backdrop-filter: blur(5px);
         }
-        .btn-outline:hover { border-color: var(--dark); background: #F8FAFC; }
+        .btn-outline:hover { border-color: white; background: rgba(255,255,255,0.15); }
 
         /* --- BENTO GRID (Quién Soy) --- */
         #quien-soy { padding: 80px 0; }
@@ -240,7 +253,6 @@
             overflow: hidden; 
             max-width: 900px;
             margin: 0 auto;
-            /* IMPORTANTE: Min-height para asegurar visibilidad antes de carga */
             min-height: 800px; 
         }
 
@@ -256,9 +268,13 @@
 
         /* --- RESPONSIVE MOBILE --- */
         @media (max-width: 768px) {
+            #inicio {
+                background-position: center center; /* Ajuste fino para móvil */
+                padding: 120px 0 80px;
+            }
             .hero-title { font-size: 2.5rem; }
             .bento-grid { display: flex; flex-direction: column; }
-            .video-card { flex: 0 0 85%; } /* Peek effect en móvil */
+            .video-card { flex: 0 0 85%; } 
             
             .hamburger { display: block; }
             .nav-links {
