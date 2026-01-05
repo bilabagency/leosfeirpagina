@@ -3,163 +3,253 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>¿Dónde invertir 150K USD? | Leandro Sfeir</title>
+    <title>Inversiones Vaca Muerta | Leandro Sfeir</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Montserrat:wght@600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        /* --- VARIABLES IDENTIDAD TECH --- */
+        /* --- VARIABLES --- */
         :root {
-            --primary: #0F52BA;
-            --dark: #0F172A;
+            --primary: #0F52BA;       /* Azul Tech */
+            --dark: #0F172A;          /* Slate Dark */
+            --oil-black: #1A1A1A;     /* Negro Petróleo */
+            --energy-gold: #F59E0B;   /* Dorado Energía */
             --light: #F8FAFC;
             --surface: #FFFFFF;
-            --text-body: #334155;
-            --border: rgba(0, 0, 0, 0.05);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
             background-color: var(--light);
-            color: var(--text-body);
+            color: #334155;
             font-family: 'Inter', sans-serif;
-            font-size: 18px; /* Texto más grande para lectura cómoda */
-            line-height: 1.8;
+            font-size: 18px;
+            line-height: 1.7;
+            overflow-x: hidden;
         }
 
-        h1, h2, h3 { font-family: 'Montserrat', sans-serif; font-weight: 800; color: var(--dark); letter-spacing: -0.02em; }
+        h1, h2, h3 { font-family: 'Montserrat', sans-serif; font-weight: 800; letter-spacing: -0.03em; color: var(--dark); }
 
-        /* --- HEADER SIMPLE --- */
+        /* --- HEADER --- */
         header {
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             padding: 15px 0;
             position: sticky;
             top: 0;
-            border-bottom: 1px solid var(--border);
-            z-index: 100;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
         }
-        .container { max-width: 800px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center; }
+        .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+        .nav-flex { display: flex; justify-content: space-between; align-items: center; }
         .logo { font-weight: 800; color: var(--dark); text-decoration: none; font-size: 1.2rem; }
         .logo span { color: var(--primary); }
-        .btn-back { text-decoration: none; color: var(--primary); font-weight: 600; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; }
+        .btn-back { color: var(--primary); text-decoration: none; font-weight: 600; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; }
 
-        /* --- ARTICLE HERO --- */
+        /* --- HERO VACA MUERTA --- */
         .hero {
-            padding: 80px 20px;
-            text-align: center;
-            background: radial-gradient(circle at 50% 50%, rgba(15, 82, 186, 0.05) 0%, transparent 70%);
-        }
-        .tag { color: var(--primary); font-weight: 700; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; margin-bottom: 15px; display: block; }
-        h1 { font-size: 2.5rem; line-height: 1.2; margin-bottom: 20px; }
-        .meta { color: #64748B; font-size: 0.9rem; }
-
-        /* --- CONTENT BODY --- */
-        .content {
-            max-width: 800px;
-            margin: 0 auto 100px;
-            padding: 0 20px;
-        }
-
-        .content p { margin-bottom: 25px; }
-        
-        .content h2 { 
-            margin-top: 50px; 
-            margin-bottom: 20px; 
-            font-size: 1.8rem;
+            height: 70vh;
+            background: linear-gradient(to bottom, rgba(15, 23, 42, 0.3), rgba(15, 23, 42, 0.9)), 
+                        url('https://images.unsplash.com/photo-1516937941344-00b4e0337589?q=80&w=2670&auto=format&fit=crop'); /* Foto industrial/petróleo */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: flex-end;
+            padding-bottom: 80px;
+            color: white;
             position: relative;
         }
         
-        /* Highlight Box */
-        .highlight-box {
-            background: #EFF6FF; /* Azul muy suave */
-            border-left: 4px solid var(--primary);
-            padding: 30px;
-            border-radius: 0 12px 12px 0;
-            margin: 40px 0;
-            font-style: italic;
-            color: var(--dark);
-            font-weight: 500;
+        .hero-content { max-width: 900px; margin: 0 auto; padding: 0 20px; width: 100%; }
+        .hero-tag { background: var(--energy-gold); color: var(--oil-black); padding: 5px 12px; font-weight: 700; text-transform: uppercase; font-size: 0.8rem; border-radius: 4px; display: inline-block; margin-bottom: 20px; }
+        .hero h1 { color: white; font-size: 3.5rem; line-height: 1.1; margin-bottom: 20px; text-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        
+        /* --- INTRO SECTION --- */
+        .intro-section { padding: 80px 0; background: white; }
+        .lead-text { font-size: 1.4rem; font-weight: 300; color: var(--dark); margin-bottom: 40px; border-left: 5px solid var(--primary); padding-left: 30px; }
+
+        /* --- INFOGRAPHIC GRID (Comparison) --- */
+        .comparison-section { background: var(--dark); color: white; padding: 80px 0; position: relative; overflow: hidden; }
+        /* Fondo decorativo abstracto */
+        .comparison-section::before {
+            content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+            background: radial-gradient(circle, rgba(15, 82, 186, 0.1) 0%, transparent 70%);
+            z-index: 0;
         }
 
-        /* Footer del post */
-        .post-footer {
-            border-top: 1px solid #E2E8F0;
-            padding-top: 40px;
-            margin-top: 60px;
-            text-align: center;
+        .comparison-title { text-align: center; margin-bottom: 50px; position: relative; z-index: 1; }
+        .comparison-title h2 { color: white; font-size: 2.5rem; }
+        
+        .cards-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .info-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 40px;
+            border-radius: 20px;
+            transition: 0.3s;
+        }
+        .info-card.recommended {
+            background: rgba(15, 82, 186, 0.2);
+            border: 2px solid var(--primary);
+            box-shadow: 0 0 30px rgba(15, 82, 186, 0.2);
+        }
+
+        .card-icon { font-size: 2.5rem; margin-bottom: 20px; display: block; }
+        .card-type { text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; opacity: 0.7; margin-bottom: 10px; display: block; }
+        .card-title { font-size: 1.8rem; margin-bottom: 20px; color: white; }
+        .card-list { list-style: none; padding: 0; }
+        .card-list li { margin-bottom: 15px; display: flex; gap: 10px; align-items: start; font-size: 0.95rem; opacity: 0.9; }
+        .check { color: var(--energy-gold); }
+
+        /* --- VISUAL BREAK (Vaca Muerta Stats) --- */
+        .stats-break {
+            padding: 80px 0;
+            background: url('https://images.unsplash.com/photo-1596392942442-b433e1443657?q=80&w=2670&auto=format&fit=crop'); /* Foto construcción moderna */
+            background-attachment: fixed;
+            background-size: cover;
+            position: relative;
+        }
+        .overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.85); }
+        
+        .stats-grid {
+            position: relative; z-index: 2;
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; text-align: center; color: white;
+        }
+        .stat-number { font-size: 3.5rem; font-weight: 900; color: var(--energy-gold); line-height: 1; }
+        .stat-label { font-size: 1rem; text-transform: uppercase; letter-spacing: 1px; margin-top: 10px; opacity: 0.8; }
+
+        /* --- FINAL THOUGHTS --- */
+        .conclusion { padding: 80px 0; background: white; text-align: center; }
+        .quote-box {
+            font-size: 1.5rem; font-weight: 700; color: var(--dark);
+            max-width: 700px; margin: 0 auto 40px; line-height: 1.4;
         }
         .btn-cta {
             display: inline-block;
             background: var(--primary);
             color: white;
-            padding: 12px 30px;
+            padding: 15px 40px;
             border-radius: 50px;
+            font-weight: 700;
             text-decoration: none;
-            font-weight: 600;
-            margin-top: 20px;
-            box-shadow: 0 4px 15px rgba(15, 82, 186, 0.3);
+            box-shadow: 0 10px 20px rgba(15, 82, 186, 0.3);
             transition: 0.3s;
         }
-        .btn-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(15, 82, 186, 0.4); }
+        .btn-cta:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(15, 82, 186, 0.4); }
 
-        /* Mobile */
         @media (max-width: 768px) {
-            h1 { font-size: 2rem; }
+            .hero h1 { font-size: 2.5rem; }
+            .cards-grid { grid-template-columns: 1fr; }
+            .stats-grid { grid-template-columns: 1fr; gap: 40px; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="container">
+        <div class="container nav-flex">
             <a href="index.html" class="logo">LEANDRO <span>SFEIR</span></a>
-            <a href="index.html#blog" class="btn-back"><i class="fas fa-arrow-left"></i> Volver</a>
+            <a href="index.html#blog" class="btn-back"><i class="fas fa-arrow-left"></i> Volver al Blog</a>
         </div>
     </header>
 
-    <article>
-        <div class="hero">
-            <span class="tag">Inversiones & Real Estate</span>
-            <h1>¿En qué invertiría 150.000 USD hoy en Neuquén?</h1>
-            <p class="meta">Por Leandro Sfeir · Lectura de 4 min</p>
+    <div class="hero">
+        <div class="hero-content">
+            <span class="hero-tag">Análisis de Mercado</span>
+            <h1>¿DÓNDE INVERTIR<br>150.000 USD HOY?</h1>
+            <p style="font-size: 1.2rem; opacity: 0.9;">El impacto de Vaca Muerta en el Real Estate y por qué Neuquén no es para tibios.</p>
         </div>
+    </div>
 
-        <div class="content">
-            <p>Es una de las preguntas que más recibo en mis redes y en la oficina: <em>"Leo, si tengo 150 mil dólares y tolero el riesgo, ¿qué hago?"</em>. La respuesta corta es: <strong>Neuquén no es para tibios, pero recompensa a los visionarios.</strong></p>
+    <section class="intro-section">
+        <div class="container">
+            <p class="lead-text">
+                "Leo, si tengo 150 mil dólares y tolero el riesgo, ¿qué hago?". Esa es la pregunta del millón. <br>
+                La respuesta corta: <strong>Salir de la zona de confort.</strong>
+            </p>
+            <p>
+                Neuquén vive una realidad paralela al resto del país. Mientras otros mercados están estancados, aquí la demanda corporativa (petroleras, ingenieros, gerentes) empuja los precios y la ocupación. [cite_start]Pero ojo: no todo lo que brilla es oro negro. [cite: 191, 194]
+            </p>
+        </div>
+    </section>
 
-            <p>Para entender dónde poner el capital hoy, primero hay que entender el contexto. Vaca Muerta no es una promesa, es una realidad energética que está traccionando una demanda habitacional que la oferta actual no alcanza a cubrir.</p>
-
-            <h2>1. El perfil de Riesgo</h2>
-            <p>Si tu perfil tolera el riesgo, mi recomendación es salir de la zona de confort de la renta tradicional. El plazo fijo inmobiliario (comprar para alquilar tradicionalmente) es seguro, pero lento.</p>
-            <p>Hoy, el verdadero juego está en la <strong>rotación de capital</strong>. Comprar en etapas tempranas de desarrollo (pozo) en zonas de expansión urbana consolidada.</p>
-
-            <div class="highlight-box">
-                "El que dice que no gana con el ladrillo, es porque compró mal o vendió antes de tiempo. La inversión inmobiliaria es un juego de timing y visión."
+    <section class="comparison-section">
+        <div class="container">
+            <div class="comparison-title">
+                <h2>TU ESTRATEGIA DEFINE TU ÉXITO</h2>
+                <p style="opacity: 0.7;">Con 150k USD, tienes dos caminos claros:</p>
             </div>
 
-            <h2>2. ¿Pozo o Terminado?</h2>
-            <p>Con 150.000 USD, tenés dos caminos claros:</p>
-            <ul>
-                <li><strong>Opción A (Conservadora):</strong> Comprar dos departamentos de 1 dormitorio terminados y alquilarlos. Tendrás flujo de caja inmediato, pero baja apreciación de capital.</li>
-                <li><strong>Opción B (Agresiva - Recomendada):</strong> Invertir en pozo en desarrollos premium orientados al perfil corporativo petrolero. Aquí ganas por partida doble: entras a un precio por m² inferior al de mercado y capturas toda la plusvalía durante la construcción (24-36 meses).</li>
-            </ul>
+            <div class="cards-grid">
+                <div class="info-card">
+                    <span class="card-icon" style="color: #94A3B8;"><i class="fas fa-key"></i></span>
+                    <span class="card-type">Conservador</span>
+                    <h3 class="card-title">Renta Tradicional</h3>
+                    <ul class="card-list">
+                        <li><i class="fas fa-check check"></i> Comprar 2 deptos usados (1 dorm).</li>
+                        <li><i class="fas fa-check check"></i> Ingreso inmediato por alquiler.</li>
+                        <li><i class="fas fa-minus" style="color: #ef4444;"></i> Baja apreciación de capital.</li>
+                        <li><i class="fas fa-minus" style="color: #ef4444;"></i> Rentabilidad estándar (3-4%).</li>
+                    </ul>
+                </div>
 
-            <h2>3. El factor Vaca Muerta</h2>
-            <p>La demanda corporativa en Neuquén busca calidad. No buscan cualquier alquiler; buscan amenities, seguridad y ubicación estratégica. Si vas a invertir ese capital, asegurate de que el producto final sea atractivo para un gerente o ingeniero que viene a trabajar a la zona.</p>
-
-            <div class="post-footer">
-                <h3>¿Querés analizar tu caso puntual?</h3>
-                <p>No todas las inversiones son para todos los perfiles. Escribime y lo vemos.</p>
-                <a href="index.html#contacto" class="btn-cta">Hablemos de Negocios</a>
+                <div class="info-card recommended">
+                    <div style="position: absolute; top: 0; right: 0; background: var(--primary); color: white; padding: 5px 15px; font-size: 0.7rem; font-weight: 700; border-radius: 0 18px 0 10px;">RECOMENDADO</div>
+                    <span class="card-icon" style="color: var(--energy-gold);"><i class="fas fa-hard-hat"></i></span>
+                    <span class="card-type">Agresivo / Visión</span>
+                    <h3 class="card-title">Inversión en Pozo</h3>
+                    <ul class="card-list">
+                        <li><i class="fas fa-check check"></i> Entrás a valor inferior al mercado.</li>
+                        <li><i class="fas fa-check check"></i> Capturás plusvalía de obra (20-30%).</li>
+                        <li><i class="fas fa-check check"></i> Apuntas al perfil corporativo premium.</li>
+                        <li><i class="fas fa-check check"></i> Rotación de capital en 24-36 meses.</li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </article>
+    </section>
+
+    <section class="stats-break">
+        <div class="overlay"></div>
+        <div class="container stats-grid">
+            <div>
+                <div class="stat-number">30%</div>
+                <div class="stat-label">Plusvalía estimada en pozo</div>
+            </div>
+            <div>
+                <div class="stat-number">+150</div>
+                <div class="stat-label">Empresas llegando a la zona</div>
+            </div>
+            <div>
+                <div class="stat-number">24</div>
+                <div class="stat-label">Meses de retorno ideal</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="conclusion">
+        <div class="container">
+            <div class="quote-box">
+                "El que dice que no gana con el ladrillo, es porque compró mal o vendió antes de tiempo. [cite_start]La inversión inmobiliaria es un juego de timing." [cite: 191]
+            </div>
+            <p style="margin-bottom: 30px; color: #64748B;">
+                Vaca Muerta no es una promesa, es una realidad energética. Si estás listo para invertir con visión estratégica, Neuquén es el lugar.
+            </p>
+            <a href="index.html#contacto" class="btn-cta">Analicemos tu Inversión</a>
+        </div>
+    </section>
 
 </body>
 </html>
