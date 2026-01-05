@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leandro Sfeir | Orador & Empresario</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Montserrat:wght@600;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- VARIABLES TECH SYSTEM --- */
+        :root {
+            --primary: #0F52BA;       /* Azul Tech Vibrante */
+            --primary-dark: #0A3D8F;
+            --accent: #00D4FF;        /* Cyan para detalles */
+            --dark: #0F172A;          /* Negro Azulado (Slate) */
+            --light: #F8FAFC;         /* Fondo limpio */
+            --surface: #FFFFFF;
+            --glass: rgba(255, 255, 255, 0.7);
+            --border: rgba(0, 0, 0, 0.05);
+            
+            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            --glow: 0 0 20px rgba(15, 82, 186, 0.3);
+        }
+
+        /* --- RESET & BASE --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 { font-family: 'Montserrat', sans-serif; font-weight: 800; letter-spacing: -0.02em; }
+        
+        /* Efecto Gradiente en Texto */
+        .text-gradient {
+            background: linear-gradient(135deg, var(--primary) 0%, #00C6FF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* --- HEADER GLASSMORPHISM --- */
+        header {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 0;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        nav { display: flex; justify-content: space-between; align-items: center; }
+
+        .logo { font-size: 1.4rem; font-weight: 800; color: var(--dark); letter-spacing: -1px; text-decoration: none; }
+        .logo span { color: var(--primary); }
+
+        .nav-links { display: flex; gap: 30px; list-style: none; }
+        .nav-links a { 
+            color: var(--dark); font-weight: 600; font-size: 0.95rem; text-decoration: none; 
+            transition: color 0.3s; position: relative;
+        }
+        .nav-links a:hover { color: var(--primary); }
+        .nav-links a::after {
+            content: ''; position: absolute; width: 0; height: 2px; bottom: -5px; left: 0;
+            background: var(--primary); transition: width 0.3s;
+        }
+        .nav-links a:hover::after { width: 100%; }
+
+        /* Botón Hamburguesa Móvil */
+        .hamburger { display: none; font-size: 1.5rem; cursor: pointer; color: var(--dark); }
+
+        /* --- HERO SECTION --- */
+        #inicio {
+            padding: 140px 0 100px;
+            background: radial-gradient(circle at 10% 20%, rgba(15, 82, 186, 0.05) 0%, transparent 50%);
+            text-align: center;
+        }
+
+        .badge-tech {
+            background: rgba(15, 82, 186, 0.1);
+            color: var(--primary);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+            margin-bottom: 25px;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            line-height: 1.1;
+            margin-bottom: 25px;
+            color: var(--dark);
+        }
+
+        .hero-desc {
+            font-size: 1.25rem;
+            color: #64748B;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            font-weight: 400;
+        }
+
+        /* Botones Tech */
+        .btn {
+            display: inline-flex; align-items: center; gap: 10px;
+            padding: 14px 32px;
+            border-radius: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 4px 14px 0 rgba(15, 82, 186, 0.39);
+        }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(15, 82, 186, 0.23); background: var(--primary-dark); }
+
+        .btn-outline {
+            background: white;
+            color: var(--dark);
+            border: 1px solid #E2E8F0;
+        }
+        .btn-outline:hover { border-color: var(--dark); background: #F8FAFC; }
+
+        /* --- BENTO GRID (Quién Soy) --- */
+        #quien-soy { padding: 80px 0; }
+        
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        .bento-card {
+            background: var(--surface);
+            border-radius: 24px;
+            padding: 30px;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.3s;
+        }
+        .bento-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+
+        .card-lg { grid-column: span 8; }
+        .card-sm { grid-column: span 4; background: var(--dark); color: white; }
+        .card-md { grid-column: span 6; }
+
+        .stat-number { font-size: 3rem; font-weight: 800; color: var(--accent); line-height: 1; margin-bottom: 5px; }
+        .stat-label { font-size: 0.9rem; opacity: 0.8; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* --- VIDEO SLIDER STREAMING STYLE --- */
+        #charlas { background: #111; color: white; padding: 100px 0; overflow: hidden; }
+        
+        .section-header-dark { display: flex; justify-content: space-between; align-items: end; margin-bottom: 40px; padding: 0 20px; max-width: 1400px; margin: 0 auto 40px; }
+        .section-header-dark h2 { font-size: 2.5rem; margin-bottom: 5px; }
+        .section-header-dark p { color: #94A3B8; }
+
+        .slider-wrapper {
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .slider-track {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            padding: 20px 20px 50px 20px;
+            scrollbar-width: none;
+        }
+        .slider-track::-webkit-scrollbar { display: none; }
+
+        .video-card {
+            flex: 0 0 600px;
+            scroll-snap-align: center;
+            border-radius: 16px;
+            overflow: hidden;
+            background: #222;
+            transition: transform 0.3s;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        
+        .video-responsive { width: 100%; aspect-ratio: 16/9; background: #000; }
+        iframe { width: 100%; height: 100%; border: none; }
+
+        /* --- BLOG GRID --- */
+        #blog { padding: 100px 0; }
+        .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        
+        .tech-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            transition: 0.3s;
+        }
+        .tech-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); border-color: var(--primary); }
+        
+        .card-img { height: 200px; width: 100%; object-fit: cover; }
+        .card-body { padding: 24px; }
+        .tag { color: var(--primary); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+        .card-title { font-size: 1.25rem; font-weight: 700; margin: 10px 0; color: var(--dark); font-family: 'Montserrat', sans-serif; }
+        .read-link { color: var(--primary); font-weight: 600; text-decoration: none; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 5px; }
+
+        /* --- FORMULARIO TECH --- */
+        #contacto {
+            background-color: var(--light);
+            padding: 80px 0;
+            position: relative;
+        }
+        
+        .form-container {
+            background: white;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border);
+            overflow: hidden; 
+            max-width: 900px;
+            margin: 0 auto;
+            /* IMPORTANTE: Min-height para asegurar visibilidad antes de carga */
+            min-height: 800px; 
+        }
+
+        /* --- FOOTER --- */
+        footer { background: var(--dark); color: white; padding: 60px 0 30px; text-align: center; }
+        .socials { margin: 30px 0; display: flex; justify-content: center; gap: 20px; }
+        .social-btn { 
+            width: 50px; height: 50px; border-radius: 50%; background: rgba(255,255,255,0.1); 
+            display: flex; align-items: center; justify-content: center; color: white; text-decoration: none;
+            transition: 0.3s; font-size: 1.2rem;
+        }
+        .social-btn:hover { background: var(--primary); transform: scale(1.1); }
+
+        /* --- RESPONSIVE MOBILE --- */
+        @media (max-width: 768px) {
+            .hero-title { font-size: 2.5rem; }
+            .bento-grid { display: flex; flex-direction: column; }
+            .video-card { flex: 0 0 85%; } /* Peek effect en móvil */
+            
+            .hamburger { display: block; }
+            .nav-links {
+                position: fixed; top: 70px; left: 0; width: 100%; background: white;
+                flex-direction: column; padding: 40px; align-items: center; gap: 20px;
+                transform: translateY(-150%); transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            }
+            .nav-links.active { transform: translateY(0); }
+            
+            .section-header-dark { flex-direction: column; align-items: flex-start; gap: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">LEANDRO <span>SFEIR</span></a>
+                <div class="hamburger" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+                <ul class="nav-links">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#quien-soy">Perfil</a></li>
+                    <li><a href="#charlas">Charlas</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                    <li><a href="#contacto" style="color: var(--primary);">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="inicio">
+        <div class="container">
+            <div class="badge-tech">Construcción de un orador</div>
+            <h1 class="hero-title">NO ES FICCIÓN,<br><span class="text-gradient">ES HACER HISTORIA</span></h1>
+            <p class="hero-desc">Del FONAVI a empresario referente. Una visión tecnológica sobre resiliencia, negocios y liderazgo transformacional para el 2030.</p>
+            
+            <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                <a href="#charlas" class="btn btn-primary"><i class="fas fa-play"></i> Ver Videos</a>
+                <a href="#contacto" class="btn btn-outline">Contratar Speaker</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="quien-soy">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 10px;">MI TRAYECTORIA</h2>
+            <p style="text-align: center; color: #64748B; margin-bottom: 40px;">Más allá de los títulos, cuentan los hechos.</p>
+            
+            <div class="bento-grid">
+                <div class="bento-card card-lg">
+                    <h3 style="color: var(--primary); margin-bottom: 15px;">DE LA ADVERSIDAD AL PROPÓSITO</h3>
+                    <p style="color: #475569; margin-bottom: 15px;">
+                        Mi historia no es lineal. De vendedor a empresario líder, aprendí que el éxito real combina <strong>visión tecnológica, acción masiva y valores humanos</strong>.
+                    </p>
+                    <p style="color: #475569;">
+                        Hoy lidero proyectos de reinserción social a través del deporte en cárceles, porque creo que "el que lo perdió todo, sabe que tiene la fuerza para volver a construirlo".
+                    </p>
+                </div>
+
+                <div class="bento-card card-sm">
+                    <div class="stat-number">40+</div>
+                    <div class="stat-label">Años siendo "Millonario"</div>
+                    <p style="font-size: 0.8rem; margin-top: 10px; opacity: 0.8;">"Porque no necesito nada más."</p>
+                </div>
+
+                <div class="bento-card card-md">
+                    <i class="fas fa-rocket" style="font-size: 2rem; color: var(--primary); margin-bottom: 15px;"></i>
+                    <h4>Visión 2030</h4>
+                    <p style="font-size: 0.9rem; color: #64748B;">Expandir el liderazgo inspiracional y el modelo de negocio inmobiliario a nivel federal.</p>
+                </div>
+
+                <div class="bento-card card-md" style="background: #EFF6FF;">
+                    <i class="fas fa-users" style="font-size: 2rem; color: var(--primary); margin-bottom: 15px;"></i>
+                    <h4>Liderazgo Humano</h4>
+                    <p style="font-size: 0.9rem; color: #64748B;">Transformar equipos ordinarios en extraordinarios mediante la confianza y la delegación.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="charlas">
+        <div class="section-header-dark">
+            <div>
+                <h2>MEDIA & CHARLAS</h2>
+                <p>Contenido de alto impacto para líderes.</p>
+            </div>
+            <div style="display: flex; gap: 10px;">
+                <i class="fas fa-arrow-left" style="padding: 10px; background: #333; border-radius: 50%;"></i>
+                <i class="fas fa-arrow-right" style="padding: 10px; background: var(--primary); border-radius: 50%;"></i>
+            </div>
+        </div>
+
+        <div class="slider-wrapper">
+            <div class="slider-track">
+                <div class="video-card">
+                    <div class="video-responsive">
+                        <iframe src="https://player.vimeo.com/video/1147384020?h=586d98a0e1" allowfullscreen title="Keynote Principal"></iframe>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-responsive">
+                        <iframe src="https://player.vimeo.com/video/453316112?h=a11879dd7a" allowfullscreen title="Charla Secundaria"></iframe>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-responsive">
+                        <iframe src="https://www.youtube.com/embed/jMZeeydKgKA" allowfullscreen title="YouTube Entrevista"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="blog">
+        <div class="container">
+            <h2 style="margin-bottom: 40px;">BLOG & INSIGHTS</h2>
+            <div class="blog-grid">
+                <article class="tech-card">
+                    <img src="https://images.unsplash.com/photo-1642543492481-44e81e3914a7?q=80&w=2670&auto=format&fit=crop" class="card-img" alt="Inversiones">
+                    <div class="card-body">
+                        <span class="tag">Inversiones</span>
+                        <h3 class="card-title">¿Dónde invertir 150K USD?</h3>
+                        <p style="color: #64748B; font-size: 0.9rem; margin-bottom: 15px;">Análisis estratégico para perfiles de riesgo en Vaca Muerta.</p>
+                        <a href="blog-inversiones.html" class="read-link">Leer artículo <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+                
+                <article class="tech-card">
+                    <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=2574&auto=format&fit=crop" class="card-img" alt="Equipos">
+                    <div class="card-body">
+                        <span class="tag">Liderazgo</span>
+                        <h3 class="card-title">Nadie llega solo</h3>
+                        <p style="color: #64748B; font-size: 0.9rem; margin-bottom: 15px;">Por qué el "Self-made man" es un mito peligroso.</p>
+                        <a href="blog-liderazgo.html" class="read-link">Leer artículo <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <article class="tech-card">
+                    <img src="https://images.unsplash.com/photo-1633158829585-23ba8f7c8caf?q=80&w=2670&auto=format&fit=crop" class="card-img" alt="Finanzas">
+                    <div class="card-body">
+                        <span class="tag">Finanzas</span>
+                        <h3 class="card-title">Ahorro vs. Deuda</h3>
+                        <p style="color: #64748B; font-size: 0.9rem; margin-bottom: 15px;">El error número uno que cometen los jóvenes profesionales.</p>
+                        <a href="blog-finanzas.html" class="read-link">Leer artículo <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 40px;">
+                <h2 style="color: var(--primary);">TRABAJEMOS JUNTOS</h2>
+                <p style="color: #64748B;">Completa el formulario para aplicar o contactar.</p>
+            </div>
+
+            <div class="form-container">
+                <iframe
+                    src="https://api.leadconnectorhq.com/widget/form/sLI4PuJv3oqNKyJpOJN3"
+                    style="width:100%;height:100%;border:none;border-radius:3px"
+                    id="inline-sLI4PuJv3oqNKyJpOJN3" 
+                    data-layout="{'id':'INLINE'}"
+                    data-trigger-type="alwaysShow"
+                    data-trigger-value=""
+                    data-activation-type="alwaysActivated"
+                    data-activation-value=""
+                    data-deactivation-type="neverDeactivate"
+                    data-deactivation-value=""
+                    data-form-name="Busqueda laboral"
+                    data-height="1307"
+                    data-layout-iframe-id="inline-sLI4PuJv3oqNKyJpOJN3"
+                    data-form-id="sLI4PuJv3oqNKyJpOJN3"
+                    title="Busqueda laboral">
+                </iframe>
+                <script src="https://link.msgsndr.com/js/form_embed.js"></script>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <h2 style="margin-bottom: 20px;">LEANDRO SFEIR</h2>
+            <div class="socials">
+                <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="social-btn"><i class="fab fa-youtube"></i></a>
+            </div>
+            <p style="font-size: 0.8rem; opacity: 0.5;">&copy; 2026 Leandro Sfeir. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const nav = document.querySelector('.nav-links');
+            const icon = document.querySelector('.hamburger i');
+            nav.classList.toggle('active');
+            
+            if(nav.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        }
+    </script>
+</body>
+</html>
