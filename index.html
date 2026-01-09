@@ -65,7 +65,6 @@
             padding: 180px 0 140px;
             position: relative;
             background-color: var(--dark);
-            /* Imagen de fondo con gradiente oscuro para que el texto se lea bien */
             background-image: 
                 linear-gradient(to bottom, rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.5)),
                 url('https://i.ibb.co/9HPV6ZZf/image-1.png');
@@ -121,7 +120,6 @@
         .timeline-header p { color: #64748B; max-width: 600px; margin: 0 auto; }
 
         .timeline { position: relative; max-width: 1000px; margin: 0 auto; }
-        /* Línea vertical */
         .timeline::after {
             content: ''; position: absolute; width: 4px; background-color: #E2E8F0;
             top: 0; bottom: 0; left: 50%; margin-left: -2px; border-radius: 2px;
@@ -136,7 +134,6 @@
         .left { left: 0; }
         .right { left: 50%; }
 
-        /* Punto central timeline */
         .timeline-item::after {
             content: ''; position: absolute; width: 20px; height: 20px;
             right: -10px; background-color: white; border: 4px solid var(--primary);
@@ -164,22 +161,35 @@
         #charlas { background: #111; color: white; padding: 100px 0; overflow: hidden; }
         .section-header-dark { display: flex; justify-content: space-between; align-items: end; max-width: 1400px; margin: 0 auto 40px; padding: 0 20px; }
         
-        .slider-track { display: flex; gap: 20px; overflow-x: auto; padding: 20px; scrollbar-width: none; }
+        .slider-track { display: flex; gap: 20px; overflow-x: auto; padding: 20px; scrollbar-width: none; scroll-snap-type: x mandatory; }
         .slider-track::-webkit-scrollbar { display: none; }
         
-        .video-card { flex: 0 0 600px; border-radius: 16px; overflow: hidden; background: #222; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .video-card { flex: 0 0 600px; border-radius: 16px; overflow: hidden; background: #222; box-shadow: 0 10px 30px rgba(0,0,0,0.5); scroll-snap-align: center; }
         .video-responsive { width: 100%; aspect-ratio: 16/9; }
         iframe { width: 100%; height: 100%; border: none; }
 
-        /* --- BLOG GRID --- */
-        #blog { padding: 100px 0; }
-        .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        /* --- BLOG SLIDER (NUEVO) --- */
+        #blog { padding: 100px 0; overflow: hidden; }
         
-        .tech-card {
+        .blog-header { display: flex; justify-content: space-between; align-items: flex-end; max-width: 1200px; margin: 0 auto 40px; padding: 0 20px; }
+        .blog-arrows { display: flex; gap: 10px; }
+        .arrow-btn { width: 40px; height: 40px; border-radius: 50%; border: 1px solid #ddd; display: flex; align-items: center; justify-content: center; color: var(--dark); cursor: pointer; transition: 0.3s; }
+        .arrow-btn:hover { background: var(--primary); color: white; border-color: var(--primary); }
+
+        .blog-slider-track {
+            display: flex; gap: 30px; overflow-x: auto; padding: 20px 5%; /* Padding lateral */
+            scrollbar-width: none; scroll-snap-type: x mandatory;
+        }
+        .blog-slider-track::-webkit-scrollbar { display: none; }
+
+        .blog-card-slide {
+            flex: 0 0 320px; /* Ancho fijo de tarjeta */
             background: white; border-radius: 16px; overflow: hidden;
             border: 1px solid var(--border); transition: 0.3s;
+            scroll-snap-align: start;
+            box-shadow: var(--shadow-card);
         }
-        .tech-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); border-color: var(--primary); }
+        .blog-card-slide:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); border-color: var(--primary); }
         
         .card-img { height: 200px; width: 100%; object-fit: cover; }
         .card-body { padding: 24px; }
@@ -204,7 +214,6 @@
         @media (max-width: 768px) {
             .hero-title { font-size: 2.5rem; }
             
-            /* Ajuste Timeline Móvil: Todo a la izquierda */
             .timeline::after { left: 31px; }
             .timeline-item { width: 100%; padding-left: 70px; padding-right: 25px; }
             .timeline-item::after { left: 21px; }
@@ -212,6 +221,7 @@
             .left::after, .right::after { left: 21px; }
             
             .video-card { flex: 0 0 85%; }
+            .blog-card-slide { flex: 0 0 85%; } /* Tarjeta blog ancha en móvil */
             
             .nav-links {
                 position: fixed; top: 70px; left: 0; width: 100%; background: white;
@@ -221,6 +231,7 @@
             }
             .nav-links.active { transform: translateY(0); }
             .hamburger { display: block; }
+            .blog-header { flex-direction: column; align-items: center; text-align: center; gap: 10px; }
         }
     </style>
 </head>
@@ -263,7 +274,6 @@
             </div>
 
             <div class="timeline">
-                
                 <div class="timeline-item left">
                     <div class="content-box">
                         <div class="icon-box" style="background: #ef4444;"><i class="fas fa-history"></i></div>
@@ -272,7 +282,6 @@
                         <p>Nací en una familia acomodada, pero la adicción al juego de mi padre nos hizo perderlo todo. Nos mudamos al Barrio Gregorio Álvarez a empezar de cero.</p>
                     </div>
                 </div>
-
                 <div class="timeline-item right">
                     <div class="content-box">
                         <div class="icon-box"><i class="fas fa-briefcase"></i></div>
@@ -281,7 +290,6 @@
                         <p>Trabajo desde los 14 años. Fui kiosquero y luego Visitador Médico, donde durante 20 años forjé mi carácter comercial y aprendí a vender.</p>
                     </div>
                 </div>
-
                 <div class="timeline-item left">
                     <div class="content-box">
                         <div class="icon-box"><i class="fas fa-building"></i></div>
@@ -290,7 +298,6 @@
                         <p>A una edad donde muchos se estancan, decidí arriesgar. Abrí mi propia oficina inmobiliaria apostando a una visión diferente del servicio.</p>
                     </div>
                 </div>
-
                 <div class="timeline-item right">
                     <div class="content-box">
                         <div class="icon-box" style="background: #F59E0B;"><i class="fas fa-trophy"></i></div>
@@ -299,7 +306,6 @@
                         <p>Lideramos el mercado inmobiliario de Neuquén. Hoy mi éxito se mide en devolver: impulsamos el rugby en las cárceles como herramienta de cambio.</p>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
@@ -332,37 +338,59 @@
     </section>
 
     <section id="blog">
-        <div class="container">
-            <h2 style="margin-bottom: 40px; text-align: center;">BLOG & INSIGHTS</h2>
-            <div class="blog-grid">
-                <article class="tech-card">
-                    <img src="https://images.unsplash.com/photo-1642543492481-44e81e3914a7?q=80&w=2670&auto=format&fit=crop" class="card-img" alt="Inversiones">
-                    <div class="card-body">
-                        <span class="tag">INVERSIONES</span>
-                        <h3 style="margin: 10px 0;">¿Dónde invertir 150K USD?</h3>
-                        <p style="color: #64748B; font-size: 0.9rem; margin-bottom: 15px;">Análisis estratégico Vaca Muerta.</p>
-                        <a href="blog-inversiones.html" class="read-link">Leer más <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </article>
-                <article class="tech-card">
-                    <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=2574&auto=format&fit=crop" class="card-img" alt="Liderazgo">
-                    <div class="card-body">
-                        <span class="tag">LIDERAZGO</span>
-                        <h3 style="margin: 10px 0;">Nadie llega solo</h3>
-                        <p style="color: #64748B; font-size: 0.9rem; margin-bottom: 15px;">El mito del Self-made man.</p>
-                        <a href="blog-liderazgo.html" class="read-link">Leer más <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </article>
-                <article class="tech-card">
-                    <img src="https://images.unsplash.com/photo-1633158829585-23ba8f7c8caf?q=80&w=2670&auto=format&fit=crop" class="card-img" alt="Finanzas">
-                    <div class="card-body">
-                        <span class="tag">FINANZAS</span>
-                        <h3 style="margin: 10px 0;">Ahorro vs Deuda</h3>
-                        <p style="color: #64748B; font-size: 0.9rem; margin-bottom: 15px;">Errores comunes al iniciar.</p>
-                        <a href="blog-finanzas.html" class="read-link">Leer más <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </article>
+        <div class="blog-header">
+            <div>
+                <h2 style="margin-bottom: 5px;">BLOG & INSIGHTS</h2>
+                <p style="color: #64748B;">Desliza para leer más artículos <i class="fas fa-arrow-right"></i></p>
             </div>
+            <div class="blog-arrows">
+                <div class="arrow-btn"><i class="fas fa-chevron-left"></i></div>
+                <div class="arrow-btn"><i class="fas fa-chevron-right"></i></div>
+            </div>
+        </div>
+
+        <div class="blog-slider-track">
+            
+            <article class="blog-card-slide">
+                <img src="https://images.unsplash.com/photo-1642543492481-44e81e3914a7?q=80&w=2670&auto=format&fit=crop" class="card-img" alt="Inversiones">
+                <div class="card-body">
+                    <span class="tag">INVERSIONES</span>
+                    <h3 style="margin: 10px 0; font-size: 1.2rem;">¿Dónde invertir 150K USD?</h3>
+                    <p style="color: #64748B; font-size: 0.9rem; margin-bottom: 15px;">Análisis estratégico Vaca Muerta.</p>
+                    <a href="blog-inversiones.html" class="read-link">Leer nota <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <article class="blog-card-slide">
+                <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=2574&auto=format&fit=crop" class="card-img" alt="Liderazgo">
+                <div class="card-body">
+                    <span class="tag">LIDERAZGO</span>
+                    <h3 style="margin: 10px 0; font-size: 1.2rem;">Nadie llega solo</h3>
+                    <p style="color: #64748B; font-size: 0.9rem; margin-bottom: 15px;">El mito del Self-made man.</p>
+                    <a href="blog-liderazgo.html" class="read-link">Leer nota <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <article class="blog-card-slide">
+                <img src="https://images.unsplash.com/photo-1633158829585-23ba8f7c8caf?q=80&w=2670&auto=format&fit=crop" class="card-img" alt="Finanzas">
+                <div class="card-body">
+                    <span class="tag">FINANZAS</span>
+                    <h3 style="margin: 10px 0; font-size: 1.2rem;">Ahorro vs Deuda</h3>
+                    <p style="color: #64748B; font-size: 0.9rem; margin-bottom: 15px;">Errores comunes al iniciar.</p>
+                    <a href="blog-finanzas.html" class="read-link">Leer nota <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <article class="blog-card-slide">
+                <img src="https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?q=80&w=2564" class="card-img" alt="Mindset">
+                <div class="card-body">
+                    <span class="tag" style="color: #F59E0B;">MINDSET</span>
+                    <h3 style="margin: 10px 0; font-size: 1.2rem;">El Equilibrista</h3>
+                    <p style="color: #64748B; font-size: 0.9rem; margin-bottom: 15px;">Miedo, riesgo y lotería.</p>
+                    <a href="blog-mindset.html" class="read-link" style="color: #F59E0B;">Leer nota <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
         </div>
     </section>
 
