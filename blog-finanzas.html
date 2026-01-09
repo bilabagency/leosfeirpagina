@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahorro vs Deuda | Leandro Sfeir</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Mismos estilos base */
+        :root { --primary: #0F52BA; --dark: #0F172A; --light: #F8FAFC; --text: #334155; --danger: #ef4444; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: var(--light); color: var(--text); font-family: 'Inter', sans-serif; font-size: 18px; line-height: 1.8; }
+        h1, h2, h3 { font-family: 'Montserrat', sans-serif; color: var(--dark); font-weight: 800; letter-spacing: -0.02em; }
+        header { background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); padding: 15px 0; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid rgba(0,0,0,0.05); }
+        .container { max-width: 800px; margin: 0 auto; padding: 0 20px; }
+        .nav-flex { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-weight: 800; color: var(--dark); text-decoration: none; font-size: 1.2rem; }
+        .logo span { color: var(--primary); }
+        .btn-back { color: var(--primary); text-decoration: none; font-weight: 600; font-size: 0.9rem; }
+
+        /* HERO FINANCE */
+        .hero { height: 60vh; background: linear-gradient(rgba(15,23,42,0.5), rgba(15,23,42,0.9)), url('https://images.unsplash.com/photo-1633158829585-23ba8f7c8caf?q=80&w=2670'); background-size: cover; background-position: center; display: flex; align-items: flex-end; padding-bottom: 60px; color: white; margin-bottom: 60px; }
+        .tag { background: #10B981; color: white; padding: 2px 10px; border-radius: 4px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; }
+
+        /* CARDS COMPARATIVAS */
+        .grid-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 40px 0; }
+        .card { background: white; padding: 30px; border-radius: 16px; border: 1px solid rgba(0,0,0,0.05); text-align: center; }
+        .card i { font-size: 2.5rem; margin-bottom: 20px; display: block; }
+        .card.bad i { color: var(--danger); }
+        .card.good i { color: #10B981; }
+        
+        /* ALERT BOX */
+        .alert-box { background: #FEF2F2; border-left: 4px solid var(--danger); padding: 20px; color: #991B1B; margin: 30px 0; font-weight: 500; }
+
+        blockquote { background: var(--dark); color: white; padding: 40px; border-radius: 16px; font-size: 1.4rem; font-weight: 700; text-align: center; margin: 50px 0; }
+        
+        .author-bio { border-top: 1px solid #E2E8F0; padding-top: 40px; margin-top: 60px; display: flex; gap: 20px; align-items: center; }
+        .author-img { width: 60px; height: 60px; border-radius: 50%; background: #ddd; object-fit: cover; }
+
+        @media (max-width: 768px) { .grid-cards { grid-template-columns: 1fr; } .hero h1 { font-size: 2rem; } }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container nav-flex">
+            <a href="index.html" class="logo">LEANDRO <span>SFEIR</span></a>
+            <a href="index.html#blog" class="btn-back"><i class="fas fa-arrow-left"></i> Volver</a>
+        </div>
+    </header>
+
+    <div class="hero">
+        <div class="container">
+            <span class="tag">Finanzas Personales</span>
+            <h1 style="margin-top: 10px;">¿Pagar deudas o empezar a ahorrar?</h1>
+            [cite_start]<p style="opacity: 0.9;">El dilema de los 20 años · [cite: 188]</p>
+        </div>
+    </div>
+
+    <article class="container">
+        <p style="font-size: 1.3rem; color: var(--dark); font-weight: 500;">
+            [cite_start]Es la pregunta que más recibo de jóvenes que empiezan a trabajar: <em>"Leo, cobré mi primer sueldo, ¿qué hago?"</em>[cite: 184]. La respuesta define tu futuro financiero de los próximos 10 años.
+        </p>
+
+        <div class="alert-box">
+            [cite_start]<i class="fas fa-exclamation-triangle"></i> <strong>El error más común[cite: 187]:</strong> Subir tu nivel de vida inmediatamente al nivel de tus ingresos. Comprarte el auto o el celular caro antes de tener un fondo de respaldo.
+        </div>
+
+        <h2>Deuda Buena vs. Deuda Mala</h2>
+        <p>No toda la deuda es igual. Hay deuda que te empobrece y deuda que te enriquece. Entender esto es la clave para salir de la carrera de la rata.</p>
+
+        <div class="grid-cards">
+            <div class="card bad">
+                <i class="fas fa-credit-card"></i>
+                <h3 style="color: var(--danger);">Deuda de Consumo</h3>
+                <p style="font-size: 0.9rem;">Tarjetas, ropa, vacaciones en cuotas o cambiar el auto por capricho.</p>
+                <div style="margin-top: 15px; font-weight: 700; color: var(--danger);">TE QUITA LIBERTAD</div>
+            </div>
+
+            <div class="card good">
+                <i class="fas fa-chart-line"></i>
+                <h3 style="color: #10B981;">Apalancamiento</h3>
+                [cite_start]<p style="font-size: 0.9rem;">Crédito hipotecario para alquiler [cite: 185] o préstamo para iniciar un negocio.</p>
+                <div style="margin-top: 15px; font-weight: 700; color: #10B981;">GENERA ACTIVOS</div>
+            </div>
+        </div>
+
+        <h2>La Regla de Oro</h2>
+        <p>
+            [cite_start]Si tenés deudas de consumo (tarjeta de crédito), <strong>pagalas primero</strong>[cite: 188]. Los intereses de la tarjeta siempre serán más altos que cualquier rendimiento que te de una inversión segura.
+        </p>
+        <p>
+            [cite_start]Una vez limpio, tu objetivo debe ser la organización[cite: 184]. No necesitás ganar millones para ahorrar, necesitás disciplina.
+        </p>
+
+        <blockquote>
+            "No sos rico por lo que ganás, sos rico por lo que conservás e invertís."
+        </blockquote>
+
+        <div class="author-bio">
+            <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2032" class="author-img">
+            <div>
+                <h4>Leandro Sfeir</h4>
+                <p style="font-size: 0.9rem; opacity: 0.8;">Empresario. Inversor.</p>
+            </div>
+        </div>
+    </article>
+</body>
+</html>
