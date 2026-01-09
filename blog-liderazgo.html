@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nadie Llega Solo | Leandro Sfeir</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* --- ESTILO BASE (Mismo que Inversiones) --- */
+        :root { --primary: #0F52BA; --dark: #0F172A; --light: #F8FAFC; --text: #334155; --chart-green: #10B981; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: var(--light); color: var(--text); font-family: 'Inter', sans-serif; font-size: 18px; line-height: 1.8; }
+        h1, h2, h3 { font-family: 'Montserrat', sans-serif; color: var(--dark); font-weight: 800; letter-spacing: -0.02em; }
+        
+        header { background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); padding: 15px 0; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid rgba(0,0,0,0.05); }
+        .container { max-width: 800px; margin: 0 auto; padding: 0 20px; }
+        .nav-flex { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-weight: 800; color: var(--dark); text-decoration: none; font-size: 1.2rem; }
+        .logo span { color: var(--primary); }
+        .btn-back { color: var(--primary); text-decoration: none; font-weight: 600; font-size: 0.9rem; }
+
+        /* HERO */
+        .hero { height: 60vh; background: linear-gradient(rgba(15,23,42,0.6), rgba(15,23,42,0.9)), url('https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=2574&auto=format&fit=crop'); background-size: cover; background-position: center; display: flex; align-items: flex-end; padding-bottom: 60px; color: white; margin-bottom: 60px; }
+        .hero h1 { font-size: 3rem; line-height: 1.1; margin-bottom: 15px; }
+        .tag { background: var(--primary); color: white; padding: 2px 10px; border-radius: 4px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; }
+
+        /* CHART */
+        .chart-box { background: white; padding: 30px; border-radius: 16px; margin: 40px 0; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
+        .bar-group { margin-bottom: 15px; }
+        .bar-label { display: flex; justify-content: space-between; font-size: 0.9rem; font-weight: 600; margin-bottom: 5px; }
+        .progress-bg { background: #E2E8F0; height: 25px; border-radius: 6px; overflow: hidden; }
+        .progress-fill { height: 100%; display: flex; align-items: center; justify-content: flex-end; padding-right: 10px; color: white; font-size: 0.8rem; font-weight: 700; width: 0; transition: width 1.5s ease-out; }
+        @keyframes loadBar { from { width: 0; } }
+
+        /* INFOGRAPHIC */
+        .infographic-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 40px 0; }
+        .info-card { background: white; padding: 25px; border-radius: 12px; border: 1px solid rgba(0,0,0,0.05); }
+        .info-card h4 { color: var(--primary); margin-bottom: 15px; }
+        .info-card li { margin-bottom: 10px; list-style: none; display: flex; gap: 10px; font-size: 0.9rem; }
+
+        blockquote { background: var(--dark); color: white; padding: 40px; border-radius: 16px; font-size: 1.4rem; font-weight: 700; text-align: center; margin: 50px 0; }
+        
+        /* FOOTER AUTHOR */
+        .author-bio { border-top: 1px solid #E2E8F0; padding-top: 40px; margin-top: 60px; display: flex; gap: 20px; align-items: center; }
+        .author-img { width: 60px; height: 60px; border-radius: 50%; background: #ddd; object-fit: cover; }
+
+        @media (max-width: 768px) { .infographic-grid { grid-template-columns: 1fr; } .hero h1 { font-size: 2rem; } }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container nav-flex">
+            <a href="index.html" class="logo">LEANDRO <span>SFEIR</span></a>
+            <a href="index.html#blog" class="btn-back"><i class="fas fa-arrow-left"></i> Volver</a>
+        </div>
+    </header>
+
+    <div class="hero">
+        <div class="container">
+            <span class="tag">Liderazgo & Equipos</span>
+            <h1>Nadie llega solo a la cima: El mito del "Self-made man"</h1>
+            [cite_start]<p style="opacity: 0.9;">Por Leandro Sfeir · [cite: 93]</p>
+        </div>
+    </div>
+
+    <article class="container">
+        <p style="font-size: 1.3rem; border-left: 4px solid var(--primary); padding-left: 20px; color: var(--dark);">
+            En el mundo empresarial nos han vendido la imagen del "hombre orquesta" que puede con todo. [cite_start]La realidad es brutalmente diferente: <strong>liderar no es mandar, es hacer crecer a otros[cite: 95].</strong>
+        </p>
+
+        <p>
+            Cuando empecé mi inmobiliaria, creía que delegar era perder el control. Me equivoqué. Entendí que mi techo de crecimiento era mi propia capacidad operativa. Si quería escalar, necesitaba multiplicar mis brazos, no solo mi esfuerzo.
+        </p>
+
+        <div class="chart-box">
+            <div style="margin-bottom: 20px; font-weight: 700; color: #64748B; text-transform: uppercase; font-size: 0.9rem;">Impacto en Facturación (3 Años)</div>
+            
+            <div class="bar-group">
+                <div class="bar-label"><span>Solo Founder ("Hombre Orquesta")</span> <span>+15%</span></div>
+                <div class="progress-bg">
+                    <div class="progress-fill" style="width: 15%; background: #64748B; animation: loadBar 1s ease-out;">Límite</div>
+                </div>
+            </div>
+
+            <div class="bar-group">
+                <div class="bar-label"><span>Equipo Delegado</span> <span>+120%</span></div>
+                <div class="progress-bg">
+                    <div class="progress-fill" style="width: 70%; background: var(--primary); animation: loadBar 1.5s ease-out;">Escalable</div>
+                </div>
+            </div>
+
+            <div class="bar-group">
+                <div class="bar-label"><span>Cultura de Líderes (Caso Montserrat)</span> <span>+300%</span></div>
+                <div class="progress-bg">
+                    <div class="progress-fill" style="width: 95%; background: var(--chart-green); animation: loadBar 2s ease-out;">Exponencial</div>
+                </div>
+            </div>
+        </div>
+
+        <h2>El Caso Montserrat: De cero a Líder</h2>
+        <p>
+            [cite_start]El verdadero éxito de un empresario no se mide en ventas, sino en historias de transformación humana. En mi equipo tenemos casos como el de Montserrat[cite: 39, 95], que comenzó sin experiencia y hoy lidera equipos de alto rendimiento.
+        </p>
+
+        <div class="infographic-grid">
+            <div class="info-card">
+                <h4 style="color: #64748B;">Jefe Tradicional</h4>
+                <ul>
+                    <li><i class="fas fa-times" style="color: #ef4444;"></i> Centraliza decisiones.</li>
+                    <li><i class="fas fa-times" style="color: #ef4444;"></i> Teme que lo superen.</li>
+                    <li><i class="fas fa-times" style="color: #ef4444;"></i> Crea seguidores.</li>
+                </ul>
+            </div>
+            <div class="info-card" style="border-color: var(--primary);">
+                <h4>Líder Multiplicador</h4>
+                <ul>
+                    <li><i class="fas fa-check" style="color: #10B981;"></i> Delega autoridad.</li>
+                    <li><i class="fas fa-check" style="color: #10B981;"></i> Celebra el éxito ajeno.</li>
+                    [cite_start]<li><i class="fas fa-check" style="color: #10B981;"></i> Crea nuevos líderes[cite: 95].</li>
+                </ul>
+            </div>
+        </div>
+
+        <blockquote>
+            "Tu empresa dejará de crecer el día que tú seas la persona más inteligente de la sala."
+            <cite>Leandro Sfeir</cite>
+        </blockquote>
+
+        <div class="author-bio">
+            <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2032" class="author-img">
+            <div>
+                <h4>Leandro Sfeir</h4>
+                <p style="font-size: 0.9rem; opacity: 0.8;">Empresario. Mentor de Equipos.</p>
+            </div>
+        </div>
+    </article>
+</body>
+</html>
