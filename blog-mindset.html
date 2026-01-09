@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mindset: El Equilibrista | Leandro Sfeir</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Mismos estilos base */
+        :root { --primary: #0F52BA; --dark: #0F172A; --light: #F8FAFC; --text: #334155; --gold: #F59E0B; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: var(--light); color: var(--text); font-family: 'Inter', sans-serif; font-size: 18px; line-height: 1.8; }
+        h1, h2, h3 { font-family: 'Montserrat', sans-serif; color: var(--dark); font-weight: 800; letter-spacing: -0.02em; }
+        header { background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); padding: 15px 0; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid rgba(0,0,0,0.05); }
+        .container { max-width: 800px; margin: 0 auto; padding: 0 20px; }
+        .nav-flex { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-weight: 800; color: var(--dark); text-decoration: none; font-size: 1.2rem; }
+        .logo span { color: var(--primary); }
+        .btn-back { color: var(--primary); text-decoration: none; font-weight: 600; font-size: 0.9rem; }
+
+        /* HERO MINDSET */
+        .hero { height: 60vh; background: linear-gradient(rgba(15,23,42,0.5), rgba(15,23,42,0.9)), url('https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?q=80&w=2564'); background-size: cover; background-position: center; display: flex; align-items: flex-end; padding-bottom: 60px; color: white; margin-bottom: 60px; }
+        .tag { background: var(--gold); color: black; padding: 2px 10px; border-radius: 4px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; }
+
+        /* STORY BOX */
+        .story-box { background: white; padding: 40px; border-radius: 16px; border-left: 5px solid var(--gold); box-shadow: 0 10px 30px rgba(0,0,0,0.05); margin: 40px 0; }
+        .story-box h3 { color: var(--gold); margin-bottom: 15px; }
+
+        /* STATS VISUAL */
+        .visual-stat { display: flex; align-items: center; gap: 20px; background: var(--dark); color: white; padding: 30px; border-radius: 12px; margin: 40px 0; }
+        .stat-circle { width: 80px; height: 80px; border: 3px solid var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 800; }
+
+        blockquote { font-size: 1.5rem; font-style: italic; color: #64748B; text-align: center; margin: 40px 0; }
+
+        .author-bio { border-top: 1px solid #E2E8F0; padding-top: 40px; margin-top: 60px; display: flex; gap: 20px; align-items: center; }
+        .author-img { width: 60px; height: 60px; border-radius: 50%; background: #ddd; object-fit: cover; }
+
+        @media (max-width: 768px) { .hero h1 { font-size: 2rem; } .visual-stat { flex-direction: column; text-align: center; } }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container nav-flex">
+            <a href="index.html" class="logo">LEANDRO <span>SFEIR</span></a>
+            <a href="index.html#blog" class="btn-back"><i class="fas fa-arrow-left"></i> Volver</a>
+        </div>
+    </header>
+
+    <div class="hero">
+        <div class="container">
+            <span class="tag">Mindset & Riesgo</span>
+            <h1 style="margin-top: 10px;">El Equilibrista: ¿Por qué tener miedo?</h1>
+            [cite_start]<p style="opacity: 0.9;">Sobre el riesgo, la lotería y animarse a jugar · [cite: 76, 199]</p>
+        </div>
+    </div>
+
+    <article class="container">
+        
+        <div class="story-box">
+            <h3>¿Por qué tengo equilibristas de adorno?</h3>
+            <p>
+                [cite_start]Mucha gente me pregunta por las figuras que tengo en mi oficina[cite: 199]. Para mí, representan la esencia del emprendedor: caminar sobre la cuerda floja, avanzar con miedo pero avanzar igual, sabiendo que el equilibrio no es quedarse quieto, es moverse constante.
+            </p>
+        </div>
+
+        <p>
+            Cuando decidí independizarme, mucha gente me decía que era una locura dejar la seguridad de mi trabajo. Pero yo siempre tuve una filosofía clara sobre la suerte y el éxito.
+        </p>
+
+        <div class="visual-stat">
+            <div class="stat-circle">0%</div>
+            <div>
+                <h4 style="margin-bottom: 5px; color: white;">Probabilidad de ganar</h4>
+                <p style="margin: 0; font-size: 0.9rem; opacity: 0.8;">Si nunca comprás el billete de lotería. [cite_start]"El que dice que no gana... es porque ni juega"[cite: 76].</p>
+            </div>
+        </div>
+
+        <h2>El punto de partida no define el destino</h2>
+        <p>
+            [cite_start]Vengo de vivir en un FONAVI[cite: 69]. Sé lo que es perderlo todo. Y justamente por eso, sé que se puede volver a construir. El miedo a perder es el mayor freno para ganar.
+        </p>
+
+        <blockquote>
+            "El éxito es una apuesta consciente al riesgo. Si querés seguridad, quedate en la orilla. Si querés descubrir nuevos mundos, tenés que perder de vista la costa."
+        </blockquote>
+
+        <div class="author-bio">
+            <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2032" class="author-img">
+            <div>
+                <h4>Leandro Sfeir</h4>
+                <p style="font-size: 0.9rem; opacity: 0.8;">Orador. Empresario.</p>
+            </div>
+        </div>
+    </article>
+</body>
+</html>
